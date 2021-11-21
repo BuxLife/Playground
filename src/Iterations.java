@@ -7,6 +7,8 @@ public class Iterations {
 
     public static void main(String[] args) {
         int[] arr1 = {7, 4, 3, 5, 2, 1, 6, 9, 8, 12};
+        String[] days = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
+
         Random rand = new Random();
 
         //printRange(arr1);
@@ -14,9 +16,12 @@ public class Iterations {
 
         //drawTriangle(8);
         //drawTriangle2(8);
-        drawWideTriangle(4);
-        System.out.println();
-        drawOtherTriangle(4);
+        //drawWideTriangle(4);
+        //drawOtherTriangle(4);
+
+        countDigits(300);
+        doCountDigits(300);
+        printFibonacci(2000);
     }
 
     public static void printRange(int[] num){
@@ -26,6 +31,10 @@ public class Iterations {
             outputLogger.log(Level.INFO, "Current position: {0}", i);
             outputLogger.log(Level.INFO, "Current integer: {0}", num[i]);
         }
+    }
+
+    public static void printCollection(int[] num) {
+
     }
 
     public static int computeFactorial(int num){
@@ -89,5 +98,35 @@ public class Iterations {
             System.out.println();
         }
     }
+    
+    public static void countDigits(int num) {
+        int result = 0; 
+        while(num > 0) {
+            num /= 10;
+            result += 1;
+        }
+        System.out.println("Result: "+ result);
+    }
 
+    public static void doCountDigits(int num) {
+        int result = 0; 
+        do {
+            num /= 10;
+            result += 1;
+        }while (num > 0);
+        System.out.println("Result: "+ result);
+    }
+
+    public static void printFibonacci(int num) {
+        int a = 0;
+        int b = 1;
+
+        while( a <= num) {
+            System.out.println(a);
+            int c = a + b;
+            a = b;
+            b = c;
+        }
+        
+    }
 }
