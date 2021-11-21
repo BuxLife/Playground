@@ -1,5 +1,7 @@
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 
 
 public class Iterations {
@@ -9,8 +11,12 @@ public class Iterations {
 
     public static void main(String[] args) {
         int[] arr1 = {7, 4, 3, 5, 2, 1, 6, 9, 8, 12};
+        Random rand = new Random();
 
-        printRange(arr1);
+
+        //printRange(arr1);
+
+        computeFactorial(rand.nextInt(30));
 
     }
 
@@ -24,6 +30,16 @@ public class Iterations {
         }
     }
 
+    public static int computeFactorial(int num){
+        int factorial = 1;
+        for (int i = 1; i <= num; i++) {
+            factorial *= i; 
+            outputLogger.log(Level.INFO, "Current multiplier: {0}", i);
+            outputLogger.log(Level.INFO, "Current factorial value: {0}", factorial);
+        }
+
+        return factorial;
+    }
     
 
 }
