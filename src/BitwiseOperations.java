@@ -1,9 +1,11 @@
 
 public class BitwiseOperations {
-
     
+    // TODO: Binary string conversions should be moved out of main, into a method. 
+
     public static void main(String[] args) {
 
+        
         char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
         
         for(int i = 0; i < alphabet.length; i++) {
