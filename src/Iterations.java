@@ -2,8 +2,6 @@ import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import org.w3c.dom.ranges.Range;
-
 public class Iterations {        
     public static final Logger outputLogger = Logger.getLogger(Iterations.class.getName());
 
@@ -24,6 +22,7 @@ public class Iterations {
         doCountDigits(300);
         printFibonacci(2000);
         printCollection(days);
+        printReverseCollection(days);
 
     }
 
@@ -45,7 +44,7 @@ public class Iterations {
     public static void printReverseCollection(String[] input) {
         int len = input.length;
 
-        for (int i = 0; i < len; i++ ) {
+        for (int i = len -1; i >= 0; i--) {
             System.out.println(input[i]);
         }
     }
@@ -151,12 +150,12 @@ public class Iterations {
 
     public int binaryGap(int num) {
 
-        while (num > 0 && (num % 2 == 0)){
-           // While N is not 0, and N is divisible.
-            num >>=1;   //Shift bits to the right. 
+        while ((num > 0) && (num % 2 == 0)){            //More feasible than using a flag for 0 and 1 bits. 
+           // While num is not 0, and num is divisible.
+            num >>=1;   //Shift bits of 1 to the right. 
         }
-        num >>= 1;
 
+        num >>= 1;
         // This initial loop allows us to forego a flag for 0 or 1 bits, 
         // and skip all trailing zeroes 
 
@@ -175,42 +174,24 @@ public class Iterations {
         return gap;
     }
     
-    public int[] rotateArrayRight(int[] A, int K) {
-
-        //for (int i = 0; i < A.length; i++) {
-            //System.out.print(A[i] + " ");
-        //}
-
+    public int[] rotateArrayRight(int[] arr, int num) {
         //Rotate the array by K times
-        for (int i = 0; i < K; i++) {
-
+        for (int i = 0; i < num; i++) {
             //Hold last element of array (length -1) 
-            int last = A[A.length-1]; 
-
-            for (int j = A.length-1; j > 0; j--) {
-                //System.out.println("Original Value: " + A[j]);
-                //System.out.println("New Value: " + A[j-1]);
-                
+            int last = arr[arr.length-1]; 
+            for (int j = arr.length-1; j > 0; j--) {
                 //Shifting the array
-                A[j] = A[j-1];
-                
+                arr[j] = arr[j-1];
             }
             //Add prev last element to start of array. 
-            A[0] = last; 
+            arr[0] = last; 
         }
-        
-        //for (int i = 0; i < A.length; i++) {
-            //System.out.print(A[i] + " ");
-        //}
-        return A;
+        return arr;
     }
 
     public static boolean validParentheses(String parens) {
-    String opening = "(";
-    String close = ")";
     int prev = 0; 
     boolean result = false; 
-    
     
     for (int i = 0; i < parens.length(); i++) {
       char ch = parens.charAt(i);
@@ -232,5 +213,4 @@ public class Iterations {
     if (prev == 0) {result = true;}
     return result; 
   }
-
 }
