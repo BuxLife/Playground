@@ -213,4 +213,18 @@ public class Iterations {
     if (prev == 0) {result = true;}
     return result; 
   }
+
+    public long numberOfDivisors(int n) {
+    int divisorCount = 0;
+    int current = 0;
+    int last = n;
+    
+    for (int i = 1; i <= n; i++) {
+        if (n % i == 0) {
+          divisorCount++;
+        }
+    }
+  return divisorCount;
+  }
+
 }

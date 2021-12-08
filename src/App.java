@@ -14,10 +14,7 @@ public class App {
       // log messages using log(Level level, String msg)
       logger.log(Level.INFO, "This is message 1");
       logger.log(Level.WARNING, "This is message 2");
-
-      
     }
-
 
     public static boolean isEven(int num){
         return (num % 2 == 0);
